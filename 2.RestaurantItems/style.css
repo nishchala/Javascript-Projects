@@ -3,3 +3,36 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container__menu {
+  width: 30%;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 0 0.3em gray;
+}
+.container__menu img {
+  width: 50%;
+  box-shadow: 0 0 0.3em gray;
+  border-radius: 0.3em;
+  margin: 1rem;
+}
+
+#menu-buttons {
+  margin: 1em 0;
+}
+
+#menu-buttons button {
+  padding: 0.1em;
+  font-size: 1em;
+}
+
+#menu-buttons button:hover {
+  cursor: pointer;
+}
