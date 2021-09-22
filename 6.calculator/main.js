@@ -131,7 +131,14 @@ let toggleFlag = 0;
             toggleFlag =1;
             display(num2);
         }
-    })
+    });
+
+    // TODO - dot operator
+    
+    // const dot = document.getElementById("dot");
+    // dot.addEventListener("click", ()=>{
+
+    // })
 
     const calc = (num1,num2,op) => {
         if(op=="+") return num1+num2;
