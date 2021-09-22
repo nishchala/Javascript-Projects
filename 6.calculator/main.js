@@ -81,6 +81,15 @@ for(let i=0; i < opr.length; i++) {
         }
     });}
 
+    const equal = document.getElementById("equal");
+    equal.addEventListener("click", ()=>{
+        num1 = calc(num1,num2,op);
+        display(num1);
+        num1flag = 1;
+        opflag =0;
+        num2flag =0;
+    })
+
     const calc = (num1,num2,op) => {
         if(op=="+") return num1+num2;
         if(op=="-") return num1-num2;
