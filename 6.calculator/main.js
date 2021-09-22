@@ -17,10 +17,20 @@ for(let i=0; i < num.length; i++) {
             num1flag = 1;
         }
         else if(num1flag = 1 && opflag==0 && num2flag==0) {
+            if(toggleFlag == 0) {
             num1 += num[i].innerHTML;
             num1 = Number(num1);
             console.log(num1);
             display(num1);
+            }
+            else {
+                num1=Number(num[i].innerHTML);
+            console.log(num1);
+            display(num1);
+            num1flag = 1;
+            toggleFlag =0;
+            }
+
         }
         else if(num1flag==0 && opflag==1 && num2flag==0) {
             num2flag=1;
@@ -30,10 +40,20 @@ for(let i=0; i < num.length; i++) {
             display(num2);
         }
         else if(num2flag==1 && num1flag==0 && opflag==0) {
+            if(toggleFlag ==0) {
             num2 += num[i].innerHTML;
             num2 = Number(num2);
             console.log(num2);
             display(num2);
+            }
+            else {
+                num2flag=1;
+            opflag=0;
+            num2=Number(num[i].innerHTML);
+            console.log(num2);
+            display(num2);
+            toggleFlag = 0;
+            }
         }
 
         // console.log(typeof Number(num[i].innerHTML));
@@ -58,6 +78,7 @@ for(let i=0; i < opr.length; i++) {
             opflag=1;
             op = opr[i].innerHTML;
             console.log(op);
+            toggleFlag = 0;
         }
         else if(opflag==1 && num1flag==0 && num2flag==0) {
             num1 = calc(num1,num2,op);
@@ -73,7 +94,7 @@ for(let i=0; i < opr.length; i++) {
             num1 = calc(num1,num2,op);
             num2=0;
             op=opr[i].innerHTML;
-            
+            toggleFlag = 0;
 
             console.log(num1);
             console.log(op);
@@ -95,6 +116,21 @@ for(let i=0; i < opr.length; i++) {
         num1flag = num2flag = num1 = num2 = opflag = 0;
         op = "";
         display(0);
+    });
+
+let toggleFlag = 0;
+    const sign = document.getElementById("sign");
+    sign.addEventListener("click", () => {
+        if(( num1flag == 1 || opflag == 1 )&& num1 != 0) {
+            num1 *= -1;
+            toggleFlag = 1;
+            display(num1);
+        }
+        else if(num2flag ==1 && num2 != 0) {
+            num2 *= -1;
+            toggleFlag =1;
+            display(num2);
+        }
     })
 
     const calc = (num1,num2,op) => {
@@ -103,8 +139,8 @@ for(let i=0; i < opr.length; i++) {
         if(op=="*") return num1*num2;
         if(op=="/") return num1/num2;
         if(op=="%") return num1%num2;
-        if(op=="=") return num2; //to do num1 + num2 = (result) + num1
     }
+
 
     const display = (num) => {
         const display = document.getElementById("display");
