@@ -88,6 +88,13 @@ for(let i=0; i < opr.length; i++) {
         num1flag = 1;
         opflag =0;
         num2flag =0;
+    });
+
+    const clear = document.getElementById("clear");
+    clear.addEventListener("click", ()=> {
+        num1flag = num2flag = num1 = num2 = opflag = 0;
+        op = "";
+        display(0);
     })
 
     const calc = (num1,num2,op) => {
